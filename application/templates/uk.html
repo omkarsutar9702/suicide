@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="text-center">United Kingdom</h1>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card border-danger mb-4 mt-3"
+            data-aos="flip-down">
+            <div class="card-body">
+                <h5 class="card-title">Suicide rate by year</h5>
+                <div id="chart1"></div>
+                <p class="card-text"> suicide rate of male are about three times higher than of female, regardless
+                    of year.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card border-danger mb-4 mt-3"
+            data-aos="flip-down">
+            <div class="card-body">
+                <h5 class="card-title">Suicide by generation</h5>
+                <div id="chart2"></div>
+                <p class="card-text">suicides rate of male is greater than that of female for all top 20 countries
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card border-danger mb-4"
+            data-aos="flip-down">
+            <div class="card-body">
+                <h5 class="card-title">impact of GDP on suicide</h5>
+                <div id="chart3"></div>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card border-danger mb-4"
+            data-aos="flip-down">
+            <div class="card-body">
+                <h5 class="card-title">GDP of country</h5>
+                <div id="chart4"></div>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script>
+    var graph1 = {{ graph1JSON | safe }};
+    Plotly.plot("chart1", graph1, {})
+
+    var graph2 = {{ graph2JSON | safe }};
+    Plotly.plot("chart2", graph2, {})
+
+    var graph3 = {{ graph3JSON | safe }};
+    Plotly.plot("chart3", graph3, {})
+
+    var graph4 = {{ graph4JSON | safe }};
+    Plotly.plot("chart4", graph4, {})
+</script>
+
+{% endblock %}

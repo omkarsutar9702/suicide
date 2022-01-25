@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card border-dark mb-4 mt-3"
+            data-aos="flip-down">
+            <div class="card-body">
+                <h5 class="card-title">Suicides gender-wise</h5>
+                <div id="chart1"></div>
+                <p class="card-text"> suicide rate of male are about three times higher than of female, regardless
+                    of year.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card  border-dark mb-4 mt-3"
+            data-aos="flip-down">
+            <div class="card-body">
+                <h5 class="card-title">Top 20 suicides in coutries by gender</h5>
+                <div id="chart2"></div>
+                <p class="card-text">suicides rate of male is greater than that of female for all top 20 countries</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card border-dark mb-4"
+            data-aos="flip-down">
+            <div class="card-body">
+                <h5 class="card-title">Top 20 countries by GDP-per capita</h5>
+                <div id="chart3"></div>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card border-dark mb-4"
+            data-aos="flip-down">
+            <div class="card-body">
+                <h5 class="card-title">Top 20 countries by suicides</h5>
+                <div id="chart4"></div>
+                <p class="card-text"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card border-dark mb-4"
+            data-aos="fade-up">
+            <div class="card-body">
+                <h5 class="card-title">Suicides generation-wise</h5>
+                <div id="chart5"></div>
+                <p class="card-text">silent and Boomers have more rate of suicide than any other generation</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card border-dark mb-4"
+            data-aos="fade-up">
+            <div class="card-body">
+                <h5 class="card-title">Suicides age-wise</h5>
+                <div id="chart6"></div>
+                <p class="card-text">people of age 35-54 have highest rate of suicide</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- plolty -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+<script>
+    var graph1 = {{ graph1JSON | safe }};
+    Plotly.plot("chart1", graph1, {})
+
+    var graph2 = {{ graph2JSON | safe }};
+    Plotly.plot("chart2", graph2, {})
+
+    var graph3 = {{ graph3JSON | safe }};
+    Plotly.plot("chart3", graph3, {})
+
+    var graph4 = {{ graph4JSON | safe }};
+    Plotly.plot("chart4", graph4, {})
+
+    var graph5 = {{ graph5JSON | safe }};
+    Plotly.plot("chart5", graph5, {})
+
+    var graph6 = {{ graph6JSON | safe }};
+    Plotly.plot("chart6", graph6, {})
+</script>
+
+{% endblock %}
